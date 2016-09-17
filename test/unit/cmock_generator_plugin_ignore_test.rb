@@ -52,6 +52,7 @@ describe CMockGeneratorPluginIgnore, "Verify CMockGeneratorPluginIgnore Module" 
     function = {:name => "Mold", :args_string => "void", :return => test_return[:void]}
     expected = ["  if (Mock.Mold_IgnoreBool)\n",
                 "  {\n",
+                "    UNITY_CLR_DETAILS();\n",
                 "    return;\n",
                 "  }\n"
                ].join
@@ -65,10 +66,11 @@ describe CMockGeneratorPluginIgnore, "Verify CMockGeneratorPluginIgnore Module" 
     @utils.expect :code_assign_argument_quickly, '  mock_retval_0', ["Mock.Fungus_FinalReturn", retval]
     expected = ["  if (Mock.Fungus_IgnoreBool)\n",
                 "  {\n",
+                "    UNITY_CLR_DETAILS();\n",
                 "    if (cmock_call_instance == NULL)\n",
-                "      return (int)Mock.Fungus_FinalReturn;\n",
+                "      return Mock.Fungus_FinalReturn;\n",
                 "    mock_retval_0",
-                "    return (int)cmock_call_instance->ReturnVal;\n",
+                "    return cmock_call_instance->ReturnVal;\n",
                 "  }\n"
                ].join
     returned = @cmock_generator_plugin_ignore.mock_implementation_precheck(function)

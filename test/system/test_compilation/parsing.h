@@ -7,6 +7,9 @@
 typedef unsigned short U16;
 typedef signed int int32_t;
 
+/* CMock should handle UTF-8 characters in comments. The world is an awesomely diverse place! */
+/* my µC Rocks! Open Source, not ©! My language has no Ümlauts! ǺƜǝƧǾɱɛ! */ /**! Illegal: åäö */
+
 typedef struct _POINT_T
 {
   int x;
@@ -45,3 +48,5 @@ unsigned int ** ptr_ptr_return4(unsigned int ** a);
 extern unsigned long int incredible_descriptors(register const unsigned short a);
 
 int32_t example_c99_type(int32_t param1);
+
+void I2CIntRegister(uint32_t ui32Base, void (*pfnHandler)(void));

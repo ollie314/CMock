@@ -11,6 +11,7 @@ compiler:
     - '-Wextra'
     - '-Wunused-parameter'
     - '-Wno-address'
+    - '-Wno-invalid-token-paste'
     - '-std=c99'
     - '-pedantic'
     - '-O0'
@@ -28,6 +29,7 @@ compiler:
   defines:
     prefix: '-D'
     items:
+      - CMOCK
       - 'UNITY_SUPPORT_64'
   object_files:
     prefix: '-o'
@@ -49,6 +51,7 @@ linker:
     destination: *systest_build_path
 
 unsupported:
+  - out_of_memory
   - unity_64bit_support
   - callingconv
 
